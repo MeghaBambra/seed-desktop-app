@@ -1,6 +1,9 @@
 # Seed - Offline Mnemonic Generation & Recovery
 
+
 ## Install
+
+![](https://s3.amazonaws.com/mbambra-seed/cover.png)
 
 * **Note: requires a node version >= 7 and an npm version >= 4.**
 

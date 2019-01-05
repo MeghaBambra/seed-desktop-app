@@ -1,0 +1,9 @@
+.encryptionKeyMainContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.encryptionKeyCardDescription {
+  font-size: 1rem !important;
+  font-weight: 300 !important;
+}

@@ -1,0 +1,3 @@
+export AWS_ACCOUNT_ID=453015955191
+export AWS_DEFAULT_REGION=us-east-1
+export NAMESPACE=seed

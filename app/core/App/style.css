@@ -1,0 +1,27 @@
+.appMainContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.appStatusBarContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 4rem;
+  background-color: #F9F9F9;
+  text-align: center;
+  font-size: 0.75rem;
+  letter-spacing: 0.03rem;
+  color: #4a4a4a;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.appStatusBarContainerCTA {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+  font-size: 0.75rem;
+  margin-right: 1.5rem;
+  letter-spacing: 0.03rem;
+  color: #4a4a4a;
+}

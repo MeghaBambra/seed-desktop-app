@@ -1,0 +1,9 @@
+.mnemonicOptionsMainContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.mnemonicOptionsCardDescription {
+  font-size: 1rem !important;
+  font-weight: 300 !important;
+}

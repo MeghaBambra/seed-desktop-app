@@ -1,0 +1,35 @@
+.launchMainContainer {
+  height: 100vh;
+  background-color: var(--brand-dark);
+  -webkit-app-region: drag;
+}
+
+.launchContentContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.launchLogoContainer {
+  width: 16%;
+  margin-top: 10rem;
+}
+
+.launchLabel {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  letter-spacing: 0.075rem;
+  color: lightblue;
+}
+
+#launchCTAContainer {
+  display: flex;
+  flex-direction: row;
+  margin-top: 4rem;
+}
+
+#launchCTAContainer button {
+  margin-right: 1rem;
+  width: 10rem !important;
+}

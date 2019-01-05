@@ -1,0 +1,50 @@
+/*
+ * @NOTE: Prepend a `~` to css file paths that are in your node_modules
+ *        See https://github.com/webpack-contrib/sass-loader#imports
+ */
+@import "~font-awesome/css/font-awesome.css";
+@import "~bootstrap/dist/css/bootstrap.css";
+@import url('https://fonts.googleapis.com/css?family=Nunito:100,300,400,400i,700,900');
+
+:root {
+  /* Brand Colors */
+  --brand-dark: #324A5E;
+  --brand-dark-green: #2C9984;
+  --brand-light-green: #4CDBC4;
+  --brand-yellow: #FFD05B;
+}
+
+body {
+  position: relative;
+  color: black;
+  height: 100%;
+  font-family: 'Nunito', sans-serif;
+  -webkit-app-region: drag;
+  overflow: hidden;
+}
+
+h2 {
+  margin: 0;
+  font-size: 2.25rem;
+  font-weight: 300;
+  color: #5E6066;
+}
+
+p {
+  font-size: 24px;
+  font-weight: 100;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: #555555;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}

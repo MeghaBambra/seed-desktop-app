@@ -1,0 +1,20 @@
+{
+  "name": "Seed",
+  "productName": "Insights",
+  "version": "1.0.0",
+  "description": "Seed Desktop App",
+  "main": "./main.prod.js",
+  "author": {
+    "name": "Megha D. Bambra",
+    "email": "megha.dhall@gmail.com",
+    "url": "https://github.com/MeghaBambra/seed-desktop-app"
+  },
+  "scripts": {
+    "electron-rebuild": "node -r babel-register ../internals/scripts/ElectronRebuild.js",
+    "postinstall": "npm run electron-rebuild"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "stellar-sdk": "^0.8.2"
+  }
+}

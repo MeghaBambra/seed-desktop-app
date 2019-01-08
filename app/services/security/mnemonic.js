@@ -1,6 +1,8 @@
 import bip39 from 'bip39'
 import has from 'lodash/has'
+import * as hashPassword from './password'
 import LevensteinDistance from '../security/utilities/levenstein_distance'
+import os from 'os-utils'
 
 const wordlists = {
   chinese_simplified: require('bip39/wordlists/chinese_simplified'),
@@ -15,6 +17,23 @@ const wordlists = {
 const vowelRe = /[aeiou]/g
 const novowels = word => word.replace(vowelRe, '')
 
+export const generateGivenEntropy = async ({ language = 'english' } = {}) => {
+  // Get average load for 15 minutes
+  const osAverage = await os.loadavg(15)
+  const freeMemory = await os.freemem()
+  const systemUpTime = await os.sysUptime()
+  const processUpTime = await os.processUptime()
+  console.log(`Average load:${osAverage}||Free memory: ${freeMemory} || System uptime: ${systemUpTime} || Process uptime: ${processUpTime}`)
+  const systemEntropy = `Average load${osAverage}Free memory${freeMemory}System uptime${systemUpTime}Process uptime${processUpTime}`
+  const hash = await hashPassword.create({ text: systemEntropy })
+  console.log(`Password: ${hash}`)
+  if (!has(bip39.wordlists, language)) {
+    throw new Error(`Language ${language} not suported`)
+  }
+  const wordlist = bip39.wordlists[language]
+  return bip39.entropyToMnemonic(hash, wordlist)
+}
+
 /**
  * Generate a mnemonic using BIP39
  * @param {Object} props Properties defining how to generate the mnemonic
@@ -23,7 +42,7 @@ const novowels = word => word.replace(vowelRe, '')
  * @param {function} [props.rng] RNG function (default is crypto.randomBytes)
  * @return {String} A string of space delimited words representing the mnemonic
  */
-export const generate = ({ strength = 256, language = 'english', rngFn = undefined } = {}) => {
+export const generate = async ({ strength = 256, language = 'english', rngFn = undefined } = {}) => {
   if (!has(bip39.wordlists, language)) {
     throw new Error(`Language ${language} not suported`)
   }

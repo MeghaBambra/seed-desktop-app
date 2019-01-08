@@ -1,14 +1,17 @@
 import React, { Component } from 'react'
 import styles from './style.css'
 import MnemonicOptions from './MnemonicOptions'
+import * as mnemonic from '../../services/security/mnemonic'
 
 class Options extends Component {
   constructor (props) {
     super()
   }
 
-  componentDidMount () {
+  async componentDidMount () {
     console.log(`Launch View Component Did mount`)
+    const phrase = await mnemonic.generateGivenEntropy()
+    console.log(`Phrase: ${phrase}`)
   }
 
   render () {

@@ -25,7 +25,10 @@ import {
 } from 'reactstrap'
 
 const list = [
-  { caption: '12 word', bytes: '128', count: 12 }, { caption: '24 word', bytes: '256', count: 24 }
+  { caption: '12 word', count: 12, keyLen: 16 },
+  { caption: '15 word', count: 15, keyLen: 20 },
+  { caption: '18 word', count: 18, keyLen: 24 },
+  { caption: '24 word', count: 24, keyLen: 32 }
 ]
 
 class Mnemonic extends Component {

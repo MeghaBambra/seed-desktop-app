@@ -2,7 +2,16 @@ import bip39 from 'bip39'
 import has from 'lodash/has'
 import * as hashPassword from './password'
 import LevensteinDistance from '../security/utilities/levenstein_distance'
-import os from 'os-utils'
+var m = require('more-entropy')
+
+var c = new m.Generator()
+
+export const mnemonic_word_count = {
+  word_length_24: 32,
+  word_length_15: 20,
+  word_length_18: 24,
+  word_length_12: 16
+}
 
 const wordlists = {
   chinese_simplified: require('bip39/wordlists/chinese_simplified'),
@@ -17,16 +26,19 @@ const wordlists = {
 const vowelRe = /[aeiou]/g
 const novowels = word => word.replace(vowelRe, '')
 
-export const generateGivenEntropy = async ({ language = 'english' } = {}) => {
-  // Get average load for 15 minutes
-  const osAverage = await os.loadavg(15)
-  const freeMemory = await os.freemem()
-  const systemUpTime = await os.sysUptime()
-  const processUpTime = await os.processUptime()
-  console.log(`Average load:${osAverage}||Free memory: ${freeMemory} || System uptime: ${systemUpTime} || Process uptime: ${processUpTime}`)
-  const systemEntropy = `Average load${osAverage}Free memory${freeMemory}System uptime${systemUpTime}Process uptime${processUpTime}`
-  const hash = await hashPassword.create({ text: systemEntropy })
-  console.log(`Password: ${hash}`)
+const generateSystemEntropy = () => {
+  return new Promise(async resolve => {
+    c.generate(512, (vals) => {
+      resolve(vals)
+    })
+  })
+}
+
+//https://github.com/keybase/more-entropy --> use this
+export const generateGivenEntropy = async ({ language = 'english', keyLen = mnemonic_word_count.word_length_12 } = {}) => {
+  const entropyValues = await generateSystemEntropy()
+  const systemEntropy = `${entropyValues}`
+  const hash = await hashPassword.create({ text: systemEntropy }, { keyLen })
   if (!has(bip39.wordlists, language)) {
     throw new Error(`Language ${language} not suported`)
   }

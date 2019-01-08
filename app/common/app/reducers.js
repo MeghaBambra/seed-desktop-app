@@ -4,7 +4,7 @@ import * as Types from './types'
 export const INITIAL_STATE = {
   currentView: Types.LAUNCH,
   envSelected: Types.DEVELOPMENT,
-  mnemonicPhraseCount: { caption: '12 word', bytes: '128', count: 12 },
+  mnemonicPhraseCount: { caption: '12 word', count: 12, keyLen: 16 },
   encryptionKey: '',
   error: false
 }

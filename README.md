@@ -1,4 +1,6 @@
 # Seed - Offline Mnemonic Generation & Recovery
+Uses system level entropy to generate mnemonic
+
 ![](https://s3.amazonaws.com/mbambra-seed/cover.png)
 
 ## Install

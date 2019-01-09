@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styles from './style.css'
 import MnemonicOptions from './MnemonicOptions'
+import EncryptionKey from './EncryptionKey'
 import * as mnemonic from '../../services/security/mnemonic'
 
 class Options extends Component {
@@ -18,6 +19,8 @@ class Options extends Component {
     return (
       <div className={styles.optionsMainContainer}>
         <MnemonicOptions />
+        <div style={{ marginTop: '1rem' }} />
+        <EncryptionKey />
       </div>
     )
   }

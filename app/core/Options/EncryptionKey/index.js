@@ -27,7 +27,7 @@ class EncryptionKey extends Component {
       password2Value: '',
       passwordMatch: false,
     }
-    //this.handleSelection = this.handleSelection.bind(this)
+    this.handleChange = this.handleChange.bind(this)
   }
 
   componentDidMount () {
@@ -39,11 +39,21 @@ class EncryptionKey extends Component {
       <div className={styles.encryptionKeyMainContainer}>
         <Card>
           <CardHeader>Step 2: Input password or key to encrypt mnemonic phrase</CardHeader>
-          <CardBody>
-            <CardText className={styles.encryptionKeyCardDescription}>
-              12 word has 128 bits entropy while 24 words has 256 bits entropy. More entropy means harder to guess mnemonic phrase.
-            </CardText>
-            <Input />
+          <CardBody className={styles.encryptionKeyCardBody}>
+            <div id={styles.encryptionKeyInputContainer}>
+              <CardText>
+                Enter an encryption password
+              </CardText>
+              <Input type='password' name='password1Value' id='password1Value'
+              value={this.state.password1Value} onChange={this.handleChange} placeholder='Enter Encryption password'/>
+            </div>
+            <div id={styles.encryptionKeyInputContainer}>
+              <CardText>
+                Re-type password
+              </CardText>
+              <Input type='password' name='password2Value' id='password2Value'
+              value={this.state.password2Value} onChange={this.handleChange} placeholder='Re-enter Encryption password'/>
+            </div>
           </CardBody>
         </Card>
       </div>
@@ -53,6 +63,16 @@ class EncryptionKey extends Component {
   async handleSelection() {
     event.preventDefault()
     this.props.setEncryptionKey(this.state.password2Value)
+  }
+
+  handleChange (event) {
+    const target = event.target
+    const name = target.name
+    var value = target.value
+    console.log(`Text Change || ${value}`)
+    this.setState({
+      [name]: value
+    })
   }
 }
 

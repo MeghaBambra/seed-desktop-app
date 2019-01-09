@@ -7,3 +7,20 @@
   font-size: 1rem !important;
   font-weight: 300 !important;
 }
+
+.encryptionKeyCardBody {
+  display: flex;
+  flex-direction: row;
+}
+
+#encryptionKeyInputContainer {
+  display: flex;
+  flex-direction: column !important;
+  width: 45%;
+  margin-right: 1.5rem;
+}
+
+#encryptionKeyInputContainer p {
+  font-size: 0.85rem !important;
+  margin-bottom: 0.25rem !important;
+}

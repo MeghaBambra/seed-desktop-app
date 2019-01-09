@@ -11,5 +11,5 @@ export const PRODUCTION = 'production'
 //View Types
 export const LAUNCH = 'launch'
 export const OPTIONS = 'options'
-export const KEY_INFO = 'key_info'
+export const OUTPUT = 'output'
 

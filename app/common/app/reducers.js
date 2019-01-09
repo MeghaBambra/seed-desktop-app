@@ -2,7 +2,7 @@ import { createReducer } from '../utils'
 import * as Types from './types'
 
 export const INITIAL_STATE = {
-  currentView: Types.LAUNCH,
+  currentView: Types.OPTIONS,
   envSelected: Types.DEVELOPMENT,
   mnemonicPhraseCount: { caption: '12 word', count: 12, keyLen: 16 },
   encryptionKey: '',

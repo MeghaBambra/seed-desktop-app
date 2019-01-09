@@ -11,8 +11,8 @@ class Options extends Component {
 
   async componentDidMount () {
     console.log(`Launch View Component Did mount`)
-    const phrase = await mnemonic.generateGivenEntropy()
-    console.log(`Phrase: ${phrase}`)
+    //const phrase = await mnemonic.generateGivenEntropy()
+    //console.log(`Phrase: ${phrase}`)
   }
 
   render () {

@@ -35,9 +35,10 @@ const generateSystemEntropy = () => {
 }
 
 //https://github.com/keybase/more-entropy --> use this
-export const generateGivenEntropy = async ({ language = 'english', keyLen = mnemonic_word_count.word_length_12 } = {}) => {
+export const generateGivenEntropy = async ({ language = 'english', keyLen = mnemonic_word_count.word_length_24 } = {}) => {
   const entropyValues = await generateSystemEntropy()
   const systemEntropy = `${entropyValues}`
+  console.log(`Entropy Values: ${systemEntropy}`)
   const hash = await hashPassword.create({ text: systemEntropy }, { keyLen })
   if (!has(bip39.wordlists, language)) {
     throw new Error(`Language ${language} not suported`)

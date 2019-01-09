@@ -24,3 +24,15 @@
   font-size: 0.85rem !important;
   margin-bottom: 0.25rem !important;
 }
+
+.encryptionErrorContainer {
+  color: brown;
+  font-size: 0.85rem !important;
+  margin-top: -0.5rem;
+  margin-bottom: 0.5rem;
+  margin-left: 1.25rem;
+}
+
+.encryptionSubmitButton {
+  margin-top: 2rem !important;
+}

@@ -15,6 +15,7 @@ import {
 } from 'reactstrap'
 
 import Options from '../Options'
+import Output from '../Output'
 
 const environments = [
   Types.DEVELOPMENT, Types.STAGING, Types.PRODUCTION
@@ -92,11 +93,12 @@ class App extends Component {
   }
 
   renderContent() {
-    return (
-      <div>
-        <Options />
-      </div>
-    )
+    switch (this.props.currentView) {
+      case Types.OPTIONS:
+        return (<Options />)
+      case Types.OUTPUT:
+        return (<Output />)
+    }
   }
 
 }
